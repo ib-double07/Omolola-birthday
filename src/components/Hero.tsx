@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { EVENT } from "../data";
 
 /** Animated welcome section: "You're Invited" → counting 45 → name → tagline → date. */
-export default function Hero() {
+export default function Hero({ started = true }: { started?: boolean }) {
   const [n, setN] = useState(0);
 
   // Ease-out count-up from 0 → 45 once the page loads
   useEffect(() => {
+    if (!started) return;
     let raf = 0;
     const startAt = performance.now() + 450;
     const duration = 2300;
@@ -18,7 +19,7 @@ export default function Hero() {
     };
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [started]);
 
   return (
     <section

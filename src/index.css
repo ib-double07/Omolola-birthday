@@ -137,6 +137,10 @@ body {
 .hero-item {
   opacity: 0;
   animation: hero-in 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-play-state: paused; /* starts when the invitation is opened */
+}
+.invite-open .hero-item {
+  animation-play-state: running;
 }
 @keyframes hero-in {
   from {
@@ -156,8 +160,8 @@ body {
   opacity: 0;
   transform: translateY(32px);
   transition:
-    opacity 1.1s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 [data-reveal].revealed {
   opacity: 1;
@@ -166,7 +170,8 @@ body {
 
 /* ── Gallery motion ────────────────────────────────────────── */
 .kenburns {
-  animation: kenburns 7.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: kenburns 4.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
 }
 @keyframes kenburns {
   from {

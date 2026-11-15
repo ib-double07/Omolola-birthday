@@ -4,7 +4,7 @@ import { GALLERY } from "../data";
 import SectionHeading from "./SectionHeading";
 import { cn } from "../utils/cn";
 
-const AUTOPLAY_MS = 6000;
+const AUTOPLAY_MS = 4500;
 
 /** Five-photo slideshow: crossfade + slow Ken Burns zoom, captions, arrows, thumbnails. */
 export default function Gallery() {
@@ -49,11 +49,11 @@ export default function Gallery() {
                 key={p.src}
                 src={p.src}
                 alt={p.alt}
-                loading={i === 0 ? "eager" : "lazy"}
+                loading="eager"
                 decoding="async"
                 style={{ objectPosition: p.position }}
                 className={cn(
-                  "absolute inset-0 h-full w-full object-cover transition-opacity duration-[1400ms] ease-out",
+                  "absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ease-out",
                   i === index ? "kenburns opacity-100" : "opacity-0"
                 )}
               />
